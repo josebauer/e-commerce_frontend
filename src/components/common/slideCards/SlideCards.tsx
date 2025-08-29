@@ -68,10 +68,14 @@ export default function SlideCards({ products }: Props) {
             ) : (
               <p className="text-sm font-medium text-red-600">{product.brand}</p> 
             )}
-            {product.stock === 0 ? (
+            {product.stock === 0 && (
               <p className="text-sm font-medium mt-2 text-gray-900">Indisponível</p>
-            ) : (
-              <p className="text-sm font-medium mt-2 text-gray-900">{product.stock} Unidade(s) Disponíveis</p>
+            )}
+            {product.stock === 1 && (
+              <p className="text-sm font-medium mt-2 text-gray-900">{product.stock} Unidade Disponível</p>
+            )}
+            {product.stock > 1 && (
+              <p className="text-sm font-medium mt-2 text-gray-900">{product.stock} Unidades Disponíveis</p>
             )}
           </div>
         </SplideSlide>

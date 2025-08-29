@@ -13,8 +13,11 @@ import {
   ShoppingBagIcon,
   XMarkIcon
 } from '@heroicons/react/24/outline'
-import Image from 'next/image'
+
 import { CategoryType } from '@/services/categoriesService'
+
+import Image from 'next/image'
+import Link from 'next/link'
 
 interface props {
   categories: CategoryType[]
@@ -27,16 +30,16 @@ export default function Header({categories}: props) {
     <header className="bg-white sticky top-0 z-50 shadow-sm">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Racing Store</span>
             <Image
               alt="Racing Store Logo"
               src="/icons/racing-store-transparent.png"
               className="w-auto"
-              width={100}
-              height={100}
+              width={70}
+              height={70}
             />
-          </a>
+          </Link>
         </div>
         <div className="flex items-center justify-center">
           <form>
@@ -51,9 +54,9 @@ export default function Header({categories}: props) {
               />
             </div>
           </form>
-          <a href="#" className="text-gray-400 hover:text-gray-500 ml-2">
+          <Link href="#" className="text-gray-400 hover:text-gray-500 ml-2">
             <MagnifyingGlassIcon aria-hidden="true" className="size-6" />
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -67,27 +70,27 @@ export default function Header({categories}: props) {
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-2">
-          <a href="#" className="text-sm/6 font-semibold text-gray-900">
+          <Link href="#" className="text-sm/6 font-semibold text-gray-900">
             Entrar
-          </a>
+          </Link>
           /
-          <a href="" className="text-sm/6 font-semibold text-gray-900">
+          <Link href="" className="text-sm/6 font-semibold text-gray-900">
             Registrar-se
-          </a>
+          </Link>
           <div className="flex items-center">
-            <a href="#" className="text-red-600 hover:scale-110 ml-2">
+            <Link href="#" className="text-red-600 hover:scale-110 ml-2">
               <span className="sr-only">Favoritos</span>
               <HeartIcon aria-hidden="true" className="size-6" />
-            </a>
+            </Link>
           </div>
           <div className="ml-2 flow-root">
-            <a href="#" className="group -m-2 flex items-center p-2">
+            <Link href="#" className="group -m-2 flex items-center p-2">
               <span className="sr-only">Sacola</span>
               <ShoppingBagIcon
                 aria-hidden="true"
                 className="size-6 shrink-0 text-red-600 hover:scale-110"
               />
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
@@ -95,13 +98,13 @@ export default function Header({categories}: props) {
       <nav className="hidden lg:flex lg:justify-center lg:gap-x-12 bg-red-600 px-4 py-3 text-white">
         <PopoverGroup className="flex items-center gap-x-12">
             {Array.isArray(categories) && categories.map((category) => (
-              <a
+              <Link
                 key={category.id}
                 href="#" 
                 className="text-sm font-semibold leading-6 text-white hover:border-bottom rounded"
               >
                 {category.name}
-              </a>
+              </Link>
             ))}
           <a href="#" className="text-sm font-semibold leading-6 text-white rounded-md border-2 px-5">Cupons</a>
         </PopoverGroup>
@@ -111,16 +114,16 @@ export default function Header({categories}: props) {
         <div className="fixed inset-0 z-50" />
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
+            <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Racing Store</span>
               <Image
                 alt="Racing Store Logo"
                 src="/icons/racing-store-transparent.png"
                 className="w-auto"
-                width={100}
-                height={100}
+                width={70}
+                height={70}
               />
-            </a>
+            </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
@@ -134,40 +137,40 @@ export default function Header({categories}: props) {
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 {Array.isArray(categories) && categories.map((category) => (
-                  <a
+                  <Link
                     key={category.id}
                     href="#" 
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
                     {category.name}
-                  </a>
+                  </Link>
                 ))}
-                <a
+                <Link
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-red-600 hover:bg-gray-50 rounded-md border-2 border-red-600 px-5"
                 >
                   Cupons
-                </a>
+                </Link>
               </div>
               <div className="flex gap-2 py-6">
-                 <a href="#" className="text-sm/6 font-semibold text-gray-900">
+                 <Link href="#" className="text-sm/6 font-semibold text-gray-900">
                   Entrar
-                </a>
+                </Link>
                 /
-                <a href="" className="text-sm/6 font-semibold text-gray-900">
+                <Link href="" className="text-sm/6 font-semibold text-gray-900">
                   Registrar-se
-                </a>
-                <a href="#" className="text-gray-400 hover:scale-110 ml-2">
+                </Link>
+                <Link href="#" className="text-gray-400 hover:scale-110 ml-2">
                   <span className="sr-only">Favoritos</span>
                   <HeartIcon aria-hidden="true" className="size-6 text-red-600" />
-                </a>
-                <a href="#" className="group -m-2 flex items-center p-2">
+                </Link>
+                <Link href="#" className="group -m-2 flex items-center p-2">
                   <span className="sr-only">Sacola</span>
                   <ShoppingBagIcon
                     aria-hidden="true"
                     className="size-6 shrink-0 text-gray-400 text-red-600 group-hover:scale-110"
                   />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

@@ -29,4 +29,12 @@ export const productsService = {
 
     return res.data
   },
+
+  getProductById: async (id: number | string) => {
+    const res = await api.get(`/products/${id}`).catch((error) => {
+      return error.response
+    })
+
+    return res.data
+  }
 }

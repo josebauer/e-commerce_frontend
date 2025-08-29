@@ -7,12 +7,10 @@ export default async function Home() {
   const allProducts = await productsService.getProducts()
 
   return (
-    <>
-      <main>
-        <Banner />
-        <ProductSlideSection products={newProducts} title="Novidades" />
-        <ProductSlideSection products={allProducts} title="Todos os produtos" />
-      </main>
-    </>
+    <main>
+      <Banner />
+      <ProductSlideSection products={newProducts} title="Novidades" />
+      <ProductSlideSection products={allProducts} title="Todos os produtos" />
+    </main>
   )
 }
