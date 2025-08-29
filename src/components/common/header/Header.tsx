@@ -4,30 +4,21 @@ import { useState } from 'react'
 import {
   Dialog,
   DialogPanel,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  Popover,
-  PopoverButton,
-  PopoverGroup,
-  PopoverPanel,
+  PopoverGroup
 } from '@headlessui/react'
 import {
   Bars3Icon,
   HeartIcon,
   MagnifyingGlassIcon,
   ShoppingBagIcon,
-  SquaresPlusIcon,
-  XMarkIcon,
+  XMarkIcon
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
 import { CategoryType } from '@/services/categoriesService'
 
 interface props {
   categories: CategoryType[]
 }
-
 
 export default function Header({categories}: props) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -103,26 +94,16 @@ export default function Header({categories}: props) {
       
       <nav className="hidden lg:flex lg:justify-center lg:gap-x-12 bg-red-600 px-4 py-3 text-white">
         <PopoverGroup className="flex items-center gap-x-12">
-          <Popover className="relative">
-            <PopoverButton className="inline-flex cursor-pointer items-center gap-x-1 text-sm font-semibold leading-6 text-white">
-              Produtos
-              <ChevronDownIcon aria-hidden="true" className="size-5 flex-none" />
-            </PopoverButton>
-            <PopoverPanel className="absolute left-1/2 z-10 mt-3 w-80 max-w-md -translate-x-1/2 overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
-              <div className="p-4">
-                {Array.isArray(categories) && categories.map((category) => (
-                  <a
-                    key={category.id}
-                    href="#"
-                    className="block rounded-lg py-2 pr-3 pl-4 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
-                  >
-                    {category.name}
-                  </a>
-                ))}
-              </div>
-            </PopoverPanel>
-          </Popover>
-          <a href="#" className="text-sm font-semibold leading-6 text-white">Cupons</a>
+            {Array.isArray(categories) && categories.map((category) => (
+              <a
+                key={category.id}
+                href="#" 
+                className="text-sm font-semibold leading-6 text-white hover:border-bottom rounded"
+              >
+                {category.name}
+              </a>
+            ))}
+          <a href="#" className="text-sm font-semibold leading-6 text-white rounded-md border-2 px-5">Cupons</a>
         </PopoverGroup>
       </nav>
     
@@ -152,27 +133,18 @@ export default function Header({categories}: props) {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                <Disclosure as="div" className="-mx-3">
-                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                    Produtos
-                    <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
-                  </DisclosureButton>
-                  <DisclosurePanel className="mt-2 space-y-2">
-                    {Array.isArray(categories) && categories.map((category) => (
-                      <DisclosureButton
-                        key={category.id}
-                        as="a"
-                        href="#"
-                        className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
-                      >
-                        {category.name}
-                      </DisclosureButton>
-                    ))}
-                  </DisclosurePanel>
-                </Disclosure>
+                {Array.isArray(categories) && categories.map((category) => (
+                  <a
+                    key={category.id}
+                    href="#" 
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                  >
+                    {category.name}
+                  </a>
+                ))}
                 <a
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-red-600 hover:bg-gray-50 rounded-md border-2 border-red-600 px-5"
                 >
                   Cupons
                 </a>

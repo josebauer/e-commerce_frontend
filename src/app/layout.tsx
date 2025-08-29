@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.scss";
-import Header from "@/components/header/Header";
 import categoriesService from "@/services/categoriesService";
+import Header from "@/components/common/header/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   title: "Racing Store",
   description: "A melhor loja de artigos de automobilismo do Brasil!",
 };
-
 
 export default async function RootLayout({
   children,

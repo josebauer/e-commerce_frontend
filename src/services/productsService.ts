@@ -8,4 +8,25 @@ export type ProductsType = {
   price: number
   stock: number
   isActive: boolean
+
+  productImages?: { id: number, url: string }[]
+}
+
+export const productsService = {
+  
+  getProducts: async () => {
+    const res = await api.get("/products").catch((error) => {
+      return error.response
+    })
+    
+    return res.data
+  },
+
+  getNewestProducts: async () => {
+    const res = await api.get('/products/newest').catch((error) => {
+      return error.response
+    })
+
+    return res.data
+  },
 }
