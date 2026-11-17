@@ -56,7 +56,7 @@ export default function SlideCards({ products }: Props) {
           <div className="mt-4 flex justify-between flex-col">
             <div>
               <h3 className="text-sm text-gray-700">
-                <Link href={`product/${product.id}`}>
+                <Link href={`/product/${product.id}`}>
                   <span aria-hidden="true" className="absolute inset-0" />
                   {product.name}
                 </Link>
