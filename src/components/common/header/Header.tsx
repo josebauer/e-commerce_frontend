@@ -70,11 +70,11 @@ export default function Header({categories}: props) {
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-2">
-          <Link href="#" className="text-sm/6 font-semibold text-gray-900">
+          <Link href="/login" className="text-sm/6 font-semibold text-gray-900">
             Entrar
           </Link>
           /
-          <Link href="" className="text-sm/6 font-semibold text-gray-900">
+          <Link href="/register" className="text-sm/6 font-semibold text-gray-900">
             Registrar-se
           </Link>
           <div className="flex items-center">
@@ -153,11 +153,11 @@ export default function Header({categories}: props) {
                 </Link>
               </div>
               <div className="flex gap-2 py-6">
-                 <Link href="#" className="text-sm/6 font-semibold text-gray-900">
+                 <Link href="/login" className="text-sm/6 font-semibold text-gray-900">
                   Entrar
                 </Link>
                 /
-                <Link href="" className="text-sm/6 font-semibold text-gray-900">
+                <Link href="/register" className="text-sm/6 font-semibold text-gray-900">
                   Registrar-se
                 </Link>
                 <Link href="#" className="text-gray-400 hover:scale-110 ml-2">
